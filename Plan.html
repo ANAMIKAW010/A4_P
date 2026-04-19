@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plan Your Trip - Discover India</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="stylep.css">
+</head>
+<body>
+
+    <nav class="navbar">
+      <a href="Home.html" class="logo-container">
+        <img src="Logo.png" alt="Logo" class="brand-logo">
+      </a>
+ <ul class="nav-links">
+        <li><a href="#destinations">EXPLORE</a></li>
+
+        <li class="dropdown-container">
+          <a href="plan.html" class="dropdown-trigger">PLAN <i class="fa-solid fa-chevron-down arrow"></i></a>
+          <ul class="dropdown-menu">
+            <li><a href="Plan.html">Plan Your Trip</a></li>
+            <li><a href="Traveller.html">Traveller Essentials</a></li>
+          </ul>
+        </li>
+
+        <li class="dropdown-container">
+          <a href="#help" class="dropdown-trigger">RESOURCES <i class="fa-solid fa-chevron-down arrow"></i></a>
+          <ul class="dropdown-menu">
+            <li><a href="vault.html">Multimedia Vault</a></li>
+            <li><a href="impact.html">Impact Dashboard</a></li>
+          </ul>
+        </li>
+
+        <li class="dropdown-container">
+          <a href="#accounts" class="dropdown-trigger">ACCOUNT <i class="fa-solid fa-chevron-down arrow"></i></a>
+          <ul class="dropdown-menu">
+            <li><a href="account.html">My Profile</a></li>
+            <li><a href="support.html">Support & Connect</a></li>
+          </ul>
+        </li>
+
+        <li><a href="#things">EXPERIENCES</a></li>
+      </ul>
+
+       
+        <div class="language-selector">
+            <button class="nav-icon-btn" id="langBtn">
+                <i class="fa-solid fa-globe"></i>
+                <i class="fa-solid fa-chevron-down arrow"></i>
+            </button>
+            <ul class="dropdown-menu">
+                <li><a href="#">English (Default)</a></li>
+                <li><a href="#">हिन्दी (Hindi)</a></li>
+                <li><a href="#">Español (Spanish)</a></li>
+                <li><a href="#">Français (French)</a></li>
+                <li><a href="#">Deutsch (German)</a></li>
+                <li><a href="#">中文 (Chinese)</a></li>
+                <li><a href="#">العربية (Arabic)</a></li>
+                <li><a href="#">日本語 (Japanese)</a></li>
+                <li><a href="#">Português (Portuguese)</a></li>
+            </ul>
+        </div>
+        <button class="nav-icon-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
+    </nav>
+
+    <section class="hero">
+        <div class="overlay">
+            <h1 class="title">Plan Your Trip</h1>
+            <h2 class="tagline">Your Personalized Journey</h2>
+        </div>
+    </section>
+
+    <main class="planner-container">
+        <div class="planner-card">
+            <h3 class="step-title">Step 1: Choose Your Preferences</h3>
+            <form id="itineraryForm">
+                <div class="form-group">
+                    <label>Interests:</label>
+                    <select class="custom-select">
+                        <option>Heritage</option>
+                        <option>Adventure</option>
+                        <option>Nature</option>
+                        <option>Spiritual</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Budget Range: <span id="budgetValue">$5000</span></label>
+                    <input type="range" min="100" max="10000" step="100" value="5000" class="slider" id="budgetSlider">
+                </div>
+
+                <div class="form-group">
+                    <label>Travel Dates:</label>
+                    <input type="date" class="custom-date">
+                </div>
+                <button type="submit" class="primary-btn">Generate Itinerary</button>
+            </form>
+        </div>
+
+        <div class="planner-card">
+            <h3 class="step-title">Step 2: Suggested Itineraries</h3>
+            <div id="itineraryResult" class="result-display">
+                Generated itineraries will appear here...
+            </div>
+        </div>
+
+        <div class="planner-card">
+            <h3 class="step-title">Step 3: Save & Share</h3>
+            <div class="button-group">
+                <button class="secondary-btn" id="saveBtn">Save</button>
+                <button class="secondary-btn" id="shareBtn">Share</button>
+            </div>
+        </div>
+    </main>
+
+    <script src="scriptp.js"></script>
+</body>
+</html>
