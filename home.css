@@ -153,32 +153,252 @@ body.dark .close-btn { color: #ccc; }
     transition: background 0.3s, transform 0.2s;
 }
 .theme-toggle:hover { transform: scale(1.05); background: #0056b3; }
+
 /* --- RESPONSIVE --- */
 @media (max-width: 768px) {
     .navbar  { padding: 10px 20px; }
     .title   { font-size: 2.5em; }
     .tagline { font-size: 1.2rem; }
 }
-/* === DARK MODE THEME TOGGLE === */
-body.dark { background: #121212; color: #e0e0e0; }
-body.dark .essential-card { background: #1e1e1e; box-shadow: 0 20px 40px rgba(0,0,0,0.4); }
-body.dark .card-content p, body.dark .badge { color: #aaa; }
-body.dark .step-title { color: #666; }
-body.dark .details-drawer { background: #181818; }
-body.dark .drawer-inner h4 { color: #ccc; }
-body.dark .audio-track { background: #2a2a2a; color: #ccc; }
-body.dark .audio-track:hover { background: #333; }
-body.dark #vault-search { background: #1e1e1e; color: #e0e0e0; border-color: rgba(255,255,255,0.1); }
-body.dark .modal-inner { background: #1e1e1e; }
-body.dark .close-btn { color: #ccc; }
-.theme-toggle {
-  position: fixed; bottom: 30px; right: 30px;
-  background: #007bff; color: #fff;
-  border: none; border-radius: 50px;
-  padding: 12px 20px; cursor: pointer;
-  font-size: 0.85rem; font-weight: bold;
-  letter-spacing: 1px; z-index: 9999;
-  box-shadow: 0 4px 15px rgba(0,123,255,0.4);
-  transition: background 0.3s, transform 0.2s;
+
+/* =========================================
+   NEW ADDITIONS: HOME SCROLL CONTENT
+========================================= */
+.home-scroll-content {
+    background: #fdfdfd; /* Clean white background below the dark hero */
+    color: #333;
+    padding: 60px 20px;
 }
-.theme-toggle:hover { transform: scale(1.05); background: #0056b3; }
+
+body.dark .home-scroll-content {
+    background: #121212;
+    color: #e0e0e0;
+}
+
+.home-section {
+    max-width: 1200px;
+    margin: 0 auto 80px auto;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.section-header h2 {
+    font-size: 2.5rem;
+    color: #FF9933; /* India Saffron */
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+}
+
+.section-header p {
+    font-size: 1.1rem;
+    color: #666;
+}
+body.dark .section-header p { color: #aaa; }
+
+/* Stats Grid */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 30px;
+}
+
+.stat-card {
+    background: #fff;
+    padding: 40px 20px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease;
+}
+
+body.dark .stat-card {
+    background: #1e1e1e;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+}
+
+.stat-card:hover { transform: translateY(-10px); }
+.stat-card i { font-size: 3rem; color: #007bff; margin-bottom: 20px; }
+.stat-card h3 { font-size: 2.5rem; margin: 0 0 10px 0; color: #222; }
+body.dark .stat-card h3 { color: #fff; }
+.stat-card p { margin: 0; color: #666; font-weight: 600; }
+body.dark .stat-card p { color: #bbb; }
+
+/* Events Grid */
+.events-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.event-card {
+    background: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    border-left: 5px solid #FF9933;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+body.dark .event-card {
+    background: #1e1e1e;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+}
+
+.event-date {
+    display: inline-block;
+    background: #ffe6cc;
+    color: #e67300;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+body.dark .event-date { background: rgba(255, 153, 51, 0.2); color: #FF9933; }
+.event-card h4 { font-size: 1.5rem; margin: 0 0 10px 0; color: #333; }
+body.dark .event-card h4 { color: #fff; }
+.event-loc { color: #007bff; font-weight: bold; margin-bottom: 15px; font-size: 0.9rem; }
+.event-card p { color: #555; line-height: 1.6; }
+body.dark .event-card p { color: #ccc; }
+
+/* News List */
+.news-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.news-item {
+    display: flex;
+    gap: 25px;
+    background: #fff;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.03);
+    align-items: flex-start;
+}
+
+body.dark .news-item { background: #1e1e1e; box-shadow: 0 5px 20px rgba(0,0,0,0.3); }
+
+.news-icon {
+    width: 60px; height: 60px;
+    background: #f0f7ff;
+    color: #007bff;
+    display: flex; align-items: center; justify-content: center;
+    border-radius: 50%; font-size: 1.5rem; flex-shrink: 0;
+}
+body.dark .news-icon { background: rgba(0, 123, 255, 0.1); }
+
+.news-content h4 { font-size: 1.3rem; margin: 0 0 10px 0; color: #222; }
+body.dark .news-content h4 { color: #fff; }
+.news-content p { margin: 0; color: #555; line-height: 1.6; }
+body.dark .news-content p { color: #bbb; }
+
+/* Scroll Animation Classes */
+.fade-in-up {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+.fade-in-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* =========================================
+   ABOUT US (TEAM) SECTION
+========================================= */
+.team-grid {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.team-card {
+    background: #fff;
+    padding: 40px 30px;
+    border-radius: 16px;
+    text-align: center;
+    width: 280px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Elegant top accent border */
+.team-card::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, #FF9933, #007bff);
+}
+
+body.dark .team-card {
+    background: #1e1e1e;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+}
+
+/* Hover Effects */
+.team-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+}
+body.dark .team-card:hover {
+    box-shadow: 0 15px 40px rgba(0,0,0,0.6);
+}
+
+/* Icon Styling with 3D Flip */
+.team-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 20px auto;
+    background: #fff3e6;
+    color: #FF9933;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+body.dark .team-icon { 
+    background: rgba(255, 153, 51, 0.1); 
+}
+
+.team-card:hover .team-icon { 
+    transform: rotateY(180deg); /* Flips the icon on hover */
+} 
+
+.team-card h3 {
+    font-size: 1.4rem;
+    margin: 0 0 10px 0;
+    color: #222;
+    letter-spacing: 0.5px;
+}
+body.dark .team-card h3 { color: #fff; }
+
+/* Roll Number Badge Styling */
+.roll-no {
+    font-family: monospace;
+    background: #f8f9fa;
+    padding: 8px 12px;
+    border-radius: 6px;
+    color: #555;
+    font-size: 0.95rem;
+    font-weight: bold;
+    display: inline-block;
+    margin: 0;
+    border: 1px solid #e9ecef;
+}
+
+body.dark .roll-no {
+    background: #2a2a2a;
+    color: #ccc;
+    border-color: #444;
+}
