@@ -29,13 +29,50 @@ const themeBtn = Object.assign(document.createElement('button'), {
   className: 'theme-toggle', textContent: 'Dark Mode'
 });
 document.body.appendChild(themeBtn);
+
+// Check memory on load for global consistency
+if (localStorage.getItem('theme') === 'dark') {
+    document.body.classList.add('dark');
+    themeBtn.textContent = 'Light Mode';
+}
+
 themeBtn.addEventListener('click', () => {
   document.body.classList.toggle('dark');
-  themeBtn.textContent = document.body.classList.contains('dark') ? 'Light Mode' : 'Dark Mode';
+  const isDark = document.body.classList.contains('dark');
+  themeBtn.textContent = isDark ? 'Light Mode' : 'Dark Mode';
+  localStorage.setItem('theme', isDark ? 'dark' : 'light');
 });
 
 // Init: animate hero text on load
 document.addEventListener('DOMContentLoaded', () => {
   animateText(document.querySelector('.title'),   0,    0.08);
   animateText(document.querySelector('.tagline'), 1.5,  0.05);
+});
+
+// --- NEW ADDITION: Scroll Reveal Animation for New Sections ---
+document.addEventListener('DOMContentLoaded', () => {
+  const scrollElements = document.querySelectorAll('.fade-in-up');
+  
+  const elementInView = (el, dividend = 1) => {
+    const elementTop = el.getBoundingClientRect().top;
+    return (elementTop <= (window.innerHeight || document.documentElement.clientHeight) / dividend);
+  };
+
+  const displayScrollElement = (element) => {
+    element.classList.add('visible');
+  };
+
+  const handleScrollAnimation = () => {
+    scrollElements.forEach((el) => {
+      if (elementInView(el, 1.15)) {
+        displayScrollElement(el);
+      }
+    });
+  }
+
+  // Run once on load, then attach to scroll
+  handleScrollAnimation();
+  window.addEventListener('scroll', () => {
+    handleScrollAnimation();
+  });
 });
