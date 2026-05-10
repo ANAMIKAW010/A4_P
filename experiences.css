@@ -1,0 +1,178 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body { font-family: Arial, sans-serif; background: #f4f7f6; color: #333; overflow-x: hidden; }
+
+/* --- NAVBAR (Same as Canvas) --- */
+.navbar { position: absolute; top: 0; width: 100%; padding: 10px 40px; display: grid; grid-template-columns: repeat(8, 1fr); align-items: center; z-index: 1000; background: linear-gradient(to bottom, rgba(0,0,0,0.7), transparent); }
+.brand-logo { height: 90px; mix-blend-mode: screen; }
+.logo-container { justify-self: start; }
+.nav-links { display: contents; list-style: none; }
+.nav-links > li, .language-selector, .nav-icon-btn { justify-self: center; position: relative; cursor: pointer; }
+.nav-links li a, .dropdown-trigger, .nav-icon-btn { text-decoration: none; color: white; font-size: 0.85rem; font-weight: 600; letter-spacing: 1.5px; display: flex; gap: 8px; align-items: center; transition: color 0.3s ease; background: transparent; border: none;}
+/* Hover — elegant gold */
+.nav-links li a:hover, .dropdown-container:hover .dropdown-trigger,
+.language-selector:hover .nav-icon-btn, .nav-icon-btn:hover { color: #d4af37 !important; }
+.nav-icon-btn:hover i, .dropdown-trigger:hover i { color: #d4af37 !important; }
+
+/* Active page — saffron orange */
+.nav-links li a.active-page, .dropdown-trigger.active-page { color: #FF9933 !important; }
+
+.dropdown-menu { position: absolute; top: 100%; left: 50%; transform: translateX(-50%) translateY(10px); background: rgba(0,0,0,0.9); list-style: none; opacity: 0; visibility: hidden; min-width: 200px; border-radius: 8px; padding: 10px 0; transition: all 0.3s ease; }
+.dropdown-container:hover .dropdown-menu, .language-selector:hover .dropdown-menu { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
+.dropdown-menu li a { padding: 12px 25px !important; display: block !important; text-transform: none !important; font-weight: 400 !important; white-space: nowrap !important; }
+.dropdown-container .dropdown-menu li a:hover, .language-selector .dropdown-menu li a:hover { background: rgba(255, 255, 255, 0.1) !important; color: #FF9933 !important; }
+
+/* --- HERO SECTION --- */
+.experiences-hero {
+    width: 100%;
+    position: relative;
+    margin-top: 0; 
+}
+
+.hero-image-container {
+    position: relative;
+    width: 100%;
+    height: 60vh; 
+    min-height: 400px;
+    overflow: hidden;
+}
+
+.hero-banner-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* This stops the image from overflowing! */
+    display: block;
+}
+
+/* Dark gradient overlay so the text is readable */
+.hero-image-container::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); 
+}
+
+.hero-text-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    z-index: 2; 
+    width: 90%;
+}
+
+.hero-text-overlay h1 {
+    font-size: 3.5rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+    text-shadow: 0 4px 10px rgba(0,0,0,0.5);
+}
+
+.hero-text-overlay p {
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+    color: #f0f0f0;
+}
+
+/* --- MAIN LAYOUT --- */
+.experiences-layout { max-width: 1200px; margin: -40px auto 50px; padding: 0 20px; position: relative; z-index: 10; display: flex; flex-direction: column; gap: 40px;}
+
+.section-header { text-align: center; margin-bottom: 30px; }
+.eyebrow { color: #FF9933; letter-spacing: 3px; text-transform: uppercase; font-size: 0.9rem; font-weight: bold; margin-bottom: 10px;}
+.section-header h2 { font-size: 2.5rem; color: #333; margin-bottom: 10px; }
+.intro { color: #666; font-size: 1.1rem; }
+
+/* --- REVIEWS GRID --- */
+.reviews-section { background: white; padding: 50px 40px; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.06); }
+.review-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 25px; }
+
+.review-card { background: #f8f9fa; padding: 30px; border-radius: 12px; border: 1px solid #eee; transition: transform 0.3s ease; }
+.review-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
+
+.review-header { display: flex; align-items: center; gap: 15px; margin-bottom: 20px; }
+.avatar { font-size: 3rem; color: #ccc; }
+.reviewer-info { flex: 1; }
+.reviewer-info h4 { margin: 0; color: #333; font-size: 1.1rem;}
+.reviewer-info span { font-size: 0.85rem; color: #777; }
+.stars { color: #FF9933; font-size: 1.1rem; }
+
+.review-text { color: #555; line-height: 1.6; font-style: italic; }
+
+/* --- FORM SECTION --- */
+.rate-experience-section { display: flex; justify-content: center; }
+.form-card { background: white; padding: 50px; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); width: 100%; max-width: 700px; text-align: center; }
+.form-card h2 { font-size: 2rem; color: #333; margin-bottom: 10px; }
+.form-card p { color: #666; margin-bottom: 30px; }
+
+.input-group { text-align: left; margin-bottom: 20px; }
+.input-group label { display: block; font-weight: bold; color: #555; margin-bottom: 8px; font-size: 0.9rem;}
+.input-group input, .input-group textarea { width: 100%; padding: 15px; border: 1px solid #ddd; border-radius: 8px; font-family: inherit; font-size: 1rem; background: #f9f9f9; transition: 0.3s; }
+.input-group input:focus, .input-group textarea:focus { border-color: #007bff; outline: none; background: white; }
+
+.interactive-stars { font-size: 2rem; color: #ddd; display: flex; gap: 10px; }
+.star-select { cursor: pointer; transition: color 0.2s ease, transform 0.2s ease; }
+.star-select:hover { transform: scale(1.1); }
+
+.primary-btn { background: #007bff; color: white; width: 100%; padding: 15px; border: none; border-radius: 8px; cursor: pointer; transition: 0.3s; font-weight: bold; font-size: 1.1rem; margin-top: 10px;}
+.primary-btn:hover { background: #0056b3; }
+
+/* --- TOAST NOTIFICATION (Drop-up in corner) --- */
+.toast {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: white;
+    border-left: 6px solid #28a745;
+    padding: 20px 25px;
+    border-radius: 8px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+    transform: translateY(150px);
+    opacity: 0;
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    z-index: 2000;
+}
+
+.toast.show {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.toast-content { display: flex; align-items: center; gap: 15px; }
+.toast-content i { font-size: 2rem; color: #28a745; }
+.toast-content h4 { margin: 0 0 5px 0; color: #333; font-size: 1.1rem;}
+.toast-content p { margin: 0; color: #666; font-size: 0.9rem; }
+
+footer { text-align: center; padding: 30px; background: white; border-top: 1px solid #eee; margin-top: 40px; font-weight: bold; color: #555;}
+
+/* RESPONSIVE */
+@media(max-width: 900px){ .review-grid { grid-template-columns: 1fr; } }
+@media(max-width: 600px){ .form-card { padding: 30px 20px; } .hero-overlay h1 { font-size: 2.5rem; } }
+/* === DARK MODE THEME TOGGLE === */
+body.dark { background: #121212; color: #e0e0e0; }
+body.dark .essential-card { background: #1e1e1e; box-shadow: 0 20px 40px rgba(0,0,0,0.4); }
+body.dark .card-content p, body.dark .badge { color: #aaa; }
+body.dark .step-title { color: #666; }
+body.dark .details-drawer { background: #181818; }
+body.dark .drawer-inner h4 { color: #ccc; }
+body.dark .audio-track { background: #2a2a2a; color: #ccc; }
+body.dark .audio-track:hover { background: #333; }
+body.dark #vault-search { background: #1e1e1e; color: #e0e0e0; border-color: rgba(255,255,255,0.1); }
+body.dark .modal-inner { background: #1e1e1e; }
+body.dark .close-btn { color: #ccc; }
+.theme-toggle {
+  position: fixed; bottom: 30px; right: 30px;
+  background: #007bff; color: #fff;
+  border: none; border-radius: 50px;
+  padding: 12px 20px; cursor: pointer;
+  font-size: 0.85rem; font-weight: bold;
+  letter-spacing: 1px; z-index: 9999;
+  box-shadow: 0 4px 15px rgba(0,123,255,0.4);
+  transition: background 0.3s, transform 0.2s;
+}
+.theme-toggle:hover { transform: scale(1.05); background: #0056b3; }

@@ -1,0 +1,168 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Discover India - The Indian Canvas. Explore every state and region of India interactively.">
+  <meta name="keywords" content="India map, states, regions, culture, travel">
+  <meta property="og:title" content="The Indian Canvas - Discover India">
+  <meta property="og:image" content="Logo.png">
+  <link rel="icon" href="Logo.png" type="image/png">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>The Indian Canvas - Discover India</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="canvas.css">
+    <link rel="stylesheet" href="global-additions.css">
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+</head>
+<body>
+
+    <header>
+    <nav class="navbar">
+      <a href="Home.html" class="logo-container">
+        <img src="Logo.png" alt="Logo" class="brand-logo">
+      </a>
+
+      <ul class="nav-links">
+        <li class="dropdown-container">
+          <a href="#explore" class="dropdown-trigger">EXPLORE <i class="fa-solid fa-chevron-down arrow"></i></a>
+          <ul class="dropdown-menu">
+            <li><a href="Canvas.html">The Indian Canvas</a></li>
+            <li><a href="TopDestinations.html">Top Destinations</a></li>
+          </ul>
+        </li>
+        <li class="dropdown-container">
+          <a href="#plan" class="dropdown-trigger">PLAN <i class="fa-solid fa-chevron-down arrow"></i></a>
+          <ul class="dropdown-menu">
+            <li><a href="Plan.html">Plan Your Trip</a></li>
+            <li><a href="Traveller.html">Traveller Essentials</a></li>
+          </ul>
+        </li>
+        <li class="dropdown-container">
+          <a href="#resources" class="dropdown-trigger">RESOURCES <i class="fa-solid fa-chevron-down arrow"></i></a>
+          <ul class="dropdown-menu">
+            <li><a href="Multimedia.html">Multimedia Vault</a></li>
+            <li><a href="Impact.html">Impact Dashboard</a></li>
+          </ul>
+        </li>
+        <li class="dropdown-container">
+          <a href="#accounts" class="dropdown-trigger">ACCOUNT <i class="fa-solid fa-chevron-down arrow"></i></a>
+          <ul class="dropdown-menu">
+            <li><a href="MyProfile.html">My Profile</a></li>
+            <li><a href="Support.html">Support &amp; Connect</a></li>
+          </ul>
+        </li>
+        <li><a href="Experiences.html">EXPERIENCES</a></li>
+      </ul>
+
+      <div class="language-selector">
+        <button class="nav-icon-btn" id="langBtn">
+          <i class="fa-solid fa-globe"></i>
+          <i class="fa-solid fa-chevron-down arrow"></i>
+        </button>
+        <ul class="dropdown-menu">
+          <li><a href="#">English (Default)</a></li>
+          <li><a href="#">हिन्दी (Hindi)</a></li>
+          <li><a href="#">Español (Spanish)</a></li>
+          <li><a href="#">Français (French)</a></li>
+          <li><a href="#">Deutsch (German)</a></li>
+          <li><a href="#">中文 (Chinese)</a></li>
+          <li><a href="#">العربية (Arabic)</a></li>
+          <li><a href="#">日本語 (Japanese)</a></li>
+          <li><a href="#">Português (Portuguese)</a></li>
+        </ul>
+      </div>
+
+      <button class="nav-icon-btn" aria-label="Search">
+        <i class="fa-solid fa-magnifying-glass"></i>
+      </button>
+    </nav>
+  </header>
+
+
+    <section class="canvas-hero">
+        <div class="hero-overlay">
+            <h1>The Indian Canvas</h1>
+            <h2>Journey Through States, Culture & Local Economies</h2>
+        </div>
+    </section>
+
+    <main class="canvas-layout">
+
+        <section class="search-bar-section">
+            <div class="search-container">
+                <div class="search-item">
+                    <label>Filter by Region</label>
+                    <select id="regionSelect">
+                        <option value="">All Regions</option>
+                        <option value="north">North India</option>
+                        <option value="central">Central India</option>
+                        <option value="south">South India</option>
+                        <option value="west">West India</option>
+                        <option value="east">East India</option>
+                        <option value="northeast">North East India</option>
+                    </select>
+                </div>
+
+                <div class="search-item" style="flex: 2;">
+                    <label>Search for a State</label>
+                    <form id="explorerForm" class="autocomplete-wrapper">
+                        <input id="stateSearch" placeholder="E.g., Madhya Pradesh, Kerala..." autocomplete="off" required>
+                        <ul id="autocomplete-list" class="autocomplete-items hidden"></ul>
+                        <p id="formMessage" class="status-msg"></p>
+                    </form>
+                </div>
+
+                <div class="search-item actions">
+                    <button type="submit" form="explorerForm" class="primary-btn">Explore</button>
+                    <a href="https://www.incredibleindia.gov.in/" target="_blank" class="primary-btn" style="display:inline-block;margin-bottom:10px;">Official India Tourism</a>
+          <button type="reset" form="explorerForm" class="secondary-btn">Reset</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="map-section">
+            <div class="map-header">
+                <h2>Interactive Map</h2>
+                <p>Click on any state to view its complete profile below.</p>
+            </div>
+            <div class="map-wrapper">
+                <div id="indiaMap" style="width: 100%; height: 450px;"></div>
+            </div>
+        </section>
+
+        <section class="state-showcase">
+            <div class="showcase-header">
+                <p class="eyebrow">State Insight</p>
+                <h2 id="stateTitle">Select a State</h2>
+            </div>
+            
+            <div class="showcase-meta">
+                <div class="meta-item"><i class="fa-solid fa-location-dot"></i> <b>Hub:</b> <span id="cultureHub">-</span></div>
+                <div class="meta-item"><i class="fa-solid fa-star"></i> <b>Known For:</b> <span id="knownFor">-</span></div>
+                <div class="meta-item"><i class="fa-solid fa-chart-line"></i> <b>Economy:</b> <span id="economy">-</span></div>
+                <div class="meta-item"><i class="fa-solid fa-compass"></i> <b>Best For:</b> <span id="bestFor">-</span></div>
+            </div>
+
+            <div class="showcase-body">
+                <p id="stateDescription">Choose a state from the search bar or the interactive map above to uncover its rich heritage, economic drivers, and local culture.</p>
+                
+                <div id="stateTags" class="state-tags">
+                    <span class="state-chip">Heritage</span>
+                </div>
+            </div>
+
+            <div class="photo-gallery" id="stateGallery">
+                </div>
+        </section>
+
+    </main>
+
+    <footer style="text-align: center; padding: 20px;">
+        <p>&copy; 2026 Discover India. Safe Travels.</p>
+    </footer>
+
+    <script src="canvas.js"></script>
+</body>
+</html>

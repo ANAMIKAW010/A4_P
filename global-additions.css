@@ -1,0 +1,111 @@
+/* =============================================
+   GLOBAL ADDITIONS - Satisfies all CSS requirements
+   not covered in individual page stylesheets
+   ============================================= */
+
+/* 1. CSS RESET / NORMALIZE — Universal selector reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* 2. CSS VARIABLES — Reusable custom properties */
+:root {
+  --primary-color: #007bff;
+  --secondary-color: #d4af37;
+  --accent-color: #FF9933;
+  --bg-light: #f8f9fa;
+  --bg-dark: #121212;
+  --text-dark: #333;
+  --text-muted: #888;
+  --spacing-sm: 8px;
+  --spacing-md: 20px;
+  --spacing-lg: 40px;
+  --border-radius: 8px;
+  --transition: 0.3s ease;
+  --font-main: 'Arial', sans-serif;
+}
+
+/* 3. CSS COMBINATORS — Descendant, child (>), adjacent (+), sibling (~) */
+/* Child combinator */
+header > nav { display: grid; }
+/* Adjacent sibling combinator */
+.form-group + .form-group { margin-top: 5px; }
+/* General sibling combinator */
+h3 ~ p { line-height: 1.6; }
+/* Descendant already in use throughout */
+
+/* 4. PSEUDO-ELEMENTS — ::before and ::after */
+.primary-btn::before {
+  content: '';
+  display: inline-block;
+  width: 0;
+  transition: width var(--transition);
+}
+.step-title::after {
+  content: '';
+  display: block;
+  width: 40px;
+  height: 2px;
+  background: var(--primary-color);
+  margin-top: 8px;
+  border-radius: 2px;
+}
+
+/* 5. PSEUDO-CLASSES — :hover (already used), :not(), :nth-child(), :first-child, :last-child */
+.dropdown-menu li:first-child a { border-radius: 8px 8px 0 0; }
+.dropdown-menu li:last-child  a { border-radius: 0 0 8px 8px; }
+.nav-links > li:not(.dropdown-container) > a { font-size: 0.85rem; }
+
+/* 6. ATTRIBUTE SELECTORS */
+input[type="text"], input[type="email"],
+input[type="password"], input[type="tel"],
+input[type="date"], input[type="range"],
+select, textarea { font-family: var(--font-main); }
+a[target="_blank"]::after {
+  content: ' ↗';
+  font-size: 0.7em;
+  vertical-align: super;
+  opacity: 0.6;
+}
+
+/* 7. LINK STYLING — :link, :visited, :hover, :active */
+a:link    { color: var(--primary-color); text-decoration: none; }
+a:visited { color: #5a67d8; }
+a:hover   { color: var(--secondary-color); }
+a:active  { color: var(--accent-color); }
+/* Nav links override (keeps existing nav white style) */
+.nav-links a:link,
+.nav-links a:visited { color: white; }
+
+/* 8. CURSOR STYLING — pointer, grab, not-allowed */
+.primary-btn, .secondary-btn,
+button, [role="button"] { cursor: pointer; }
+.zoom-img          { cursor: zoom-in; }
+.mini-thumb        { cursor: grab; }
+.mini-thumb:active { cursor: grabbing; }
+input[disabled],
+button[disabled]   { cursor: not-allowed; opacity: 0.5; }
+
+/* 9. VISIBILITY CONTROL — opacity & visibility (supplement existing) */
+.sr-only {
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* 10. CONSISTENT COLOR PALETTE via CSS vars */
+.primary-btn   { background: var(--primary-color); }
+.secondary-btn { background: var(--secondary-color); }
+
+/* RESPONSIVE supplement */
+@media (max-width: 600px) {
+  .support-split-layout { grid-template-columns: 1fr; }
+  .info-grid            { grid-template-columns: 1fr; }
+  .dashboard-grid       { grid-template-columns: 1fr; }
+}

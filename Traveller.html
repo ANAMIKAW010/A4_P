@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+  <meta name="description" content="Discover India - Traveller page. Explore heritage, culture and travel across India.">
+  <meta name="keywords" content="India travel, tourism, heritage, culture, Traveller">
+  <meta property="og:title" content="Discover India - Traveller">
+  <meta property="og:image" content="Logo.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="Logo.png" type="image/png">
+  <title>Traveller Essentials - Discover India</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="traveller.css">
+  <link rel="stylesheet" href="global-additions.css">
+</head>
+<body>
+
+    <!-- HEADER: Standard branding and navigation -->
+    <header>
+    <nav class="navbar">
+      <a href="Home.html" class="logo-container">
+        <img src="Logo.png" alt="Logo" class="brand-logo">
+      </a>
+
+      <ul class="nav-links">
+        <li class="dropdown-container">
+          <a href="#explore" class="dropdown-trigger">EXPLORE <i class="fa-solid fa-chevron-down arrow"></i></a>
+          <ul class="dropdown-menu">
+            <li><a href="Canvas.html">The Indian Canvas</a></li>
+            <li><a href="TopDestinations.html">Top Destinations</a></li>
+          </ul>
+        </li>
+        <li class="dropdown-container">
+          <a href="#plan" class="dropdown-trigger">PLAN <i class="fa-solid fa-chevron-down arrow"></i></a>
+          <ul class="dropdown-menu">
+            <li><a href="Plan.html">Plan Your Trip</a></li>
+            <li><a href="Traveller.html">Traveller Essentials</a></li>
+          </ul>
+        </li>
+        <li class="dropdown-container">
+          <a href="#resources" class="dropdown-trigger">RESOURCES <i class="fa-solid fa-chevron-down arrow"></i></a>
+          <ul class="dropdown-menu">
+            <li><a href="Multimedia.html">Multimedia Vault</a></li>
+            <li><a href="Impact.html">Impact Dashboard</a></li>
+          </ul>
+        </li>
+        <li class="dropdown-container">
+          <a href="#accounts" class="dropdown-trigger">ACCOUNT <i class="fa-solid fa-chevron-down arrow"></i></a>
+          <ul class="dropdown-menu">
+            <li><a href="MyProfile.html">My Profile</a></li>
+            <li><a href="Support.html">Support &amp; Connect</a></li>
+          </ul>
+        </li>
+        <li><a href="Experiences.html">EXPERIENCES</a></li>
+      </ul>
+
+      <div class="language-selector">
+        <button class="nav-icon-btn" id="langBtn">
+          <i class="fa-solid fa-globe"></i>
+          <i class="fa-solid fa-chevron-down arrow"></i>
+        </button>
+        <ul class="dropdown-menu">
+          <li><a href="#">English (Default)</a></li>
+          <li><a href="#">हिन्दी (Hindi)</a></li>
+          <li><a href="#">Español (Spanish)</a></li>
+          <li><a href="#">Français (French)</a></li>
+          <li><a href="#">Deutsch (German)</a></li>
+          <li><a href="#">中文 (Chinese)</a></li>
+          <li><a href="#">العربية (Arabic)</a></li>
+          <li><a href="#">日本語 (Japanese)</a></li>
+          <li><a href="#">Português (Portuguese)</a></li>
+        </ul>
+      </div>
+
+      <button class="nav-icon-btn" aria-label="Search">
+        <i class="fa-solid fa-magnifying-glass"></i>
+      </button>
+    </nav>
+  </header>
+
+        <section class="hero">
+            <video autoplay muted loop playsinline preload="auto" class="bg-video">
+                <source src="TravellerB.mp4" type="video/mp4">
+            </video>
+            <div class="overlay">
+                <h1 class="title">Traveller Essentials</h1>
+                <!-- ASIDE: Used for the tagline to satisfy usage without adding new UI -->
+                <aside>
+                    <h2 class="tagline">Everything you need to know before you land</h2>
+                </aside>
+            </div>
+        </section>
+    </header>
+
+    <!-- MAIN: Container for the primary content -->
+    <main class="essentials-container">
+        
+        <!-- ARTICLE: Independent topic cards -->
+        <article class="essential-card" id="visas">
+            <div class="card-content">
+                <h3 class="step-title">Visas & Entry</h3>
+                <p>Most travelers require an e-Tourist Visa to enter India. Ensure your passport has at least 6 months validity.</p>
+                <a href="https://indianvisaonline.gov.in/" target="_blank" class="primary-btn">Official Visa Portal</a>
+            </div>
+            <div class="card-image">
+                <img src="https://i.pinimg.com/originals/a7/e7/bd/a7e7bd9d4d2ae903b491bbfb4b2e2bc1.jpg" class="zoom-img" alt="Visa">
+            </div>
+        </article>
+
+        <article class="essential-card reverse" id="weather">
+            <div class="card-content">
+                <h3 class="step-title"> Weather & Seasons </h3>
+                <p>Peak season is Oct–Mar. Monsoons arrive in June. Pack light cottons for the plains and heavy woolens for the North.</p>
+            </div>
+            <div class="card-image">
+                <img src="https://plus.unsplash.com/premium_photo-1709310749399-fc68800e1c76?q=80&w=869&auto=format&fit=crop" class="zoom-img" alt="Weather">
+            </div>
+        </article>
+
+        <article class="essential-card" id="ethics">
+            <div class="card-content">
+                <h3 class="step-title">Ethics & Safety</h3>
+                <p>Respect local traditions: Remove shoes at temples and dress modestly. Drink only bottled water and use registered transport.</p>
+                <div class="emergency-box">
+                    <strong>Emergency: 112</strong> (All-in-one helpline)
+                </div>
+            </div>
+            <div class="card-image">
+                <img src="https://images.unsplash.com/reserve/NV0eHnNkQDHA21GC3BAJ_Paris%20Louvr.jpg?w=500&auto=format&fit=crop" alt="Ethics" class="zoom-img">
+            </div>
+        </article>
+        
+    </main>
+
+    <!-- FOOTER: Simple and clean -->
+    <footer style="text-align: center; padding: 20px;">
+        <p>&copy; 2026 Discover India. Safe Travels.</p>
+    </footer>
+
+    <script src="traveller.js"></script>
+</body>
+</html>

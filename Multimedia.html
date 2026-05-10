@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="Discover India - Multimedia page. Explore heritage, culture and travel across India.">
+  <meta name="keywords" content="India travel, tourism, heritage, culture, Multimedia">
+  <meta property="og:title" content="Discover India - Multimedia">
+  <meta property="og:image" content="Logo.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="Logo.png" type="image/png">
+  <title>The Multimedia Vault - Discover India</title>
+  <link rel="stylesheet" href="multimedia.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>aside{display:block;width:100%;}</style>
+  <link rel="stylesheet" href="global-additions.css">
+</head>
+<body>
+
+  <!-- HEADER: Now wraps the top-level navigation as the site's primary head -->
+  <header>
+    <nav class="navbar">
+      <a href="Home.html" class="logo-container">
+        <img src="Logo.png" alt="Logo" class="brand-logo">
+      </a>
+      
+      <ul class="nav-links">
+        <li class="dropdown-container">
+          <a href="#explore" class="dropdown-trigger">EXPLORE <i class="fa-solid fa-chevron-down arrow"></i></a>
+          <ul class="dropdown-menu">
+            <li><a href="Canvas.html">The Indian Canvas</a></li>
+            <li><a href="TopDestinations.html">Top Destinations</a></li>
+          </ul>
+        </li>
+
+        <li class="dropdown-container">
+          <a href="#plan" class="dropdown-trigger">PLAN <i class="fa-solid fa-chevron-down arrow"></i></a>
+          <ul class="dropdown-menu">
+            <li><a href="Plan.html">Plan Your Trip</a></li>
+            <li><a href="Traveller.html">Traveller Essentials</a></li>
+          </ul>
+        </li>
+
+        <li class="dropdown-container">
+          <a href="#resources" class="dropdown-trigger">RESOURCES <i class="fa-solid fa-chevron-down arrow"></i></a>
+          <ul class="dropdown-menu">
+            <li><a href="Multimedia.html">Multimedia Vault</a></li>
+            <li><a href="Impact.html">Impact Dashboard</a></li>
+          </ul>
+        </li>
+
+        <li class="dropdown-container">
+          <a href="#accounts" class="dropdown-trigger">ACCOUNT <i class="fa-solid fa-chevron-down arrow"></i></a>
+          <ul class="dropdown-menu">
+            <li><a href="MyProfile.html">My Profile</a></li>
+            <li><a href="Support.html">Support & Connect</a></li>
+          </ul>
+        </li>
+
+        <li><a href="Experiences.html">EXPERIENCES</a></li>
+      </ul>
+
+      <div class="language-selector">
+        <button class="nav-icon-btn" id="langBtn">
+          <i class="fa-solid fa-globe"></i>
+          <i class="fa-solid fa-chevron-down arrow"></i>
+        </button>
+        <ul class="dropdown-menu">
+          <li><a href="#">English (Default)</a></li>
+          <li><a href="#">हिन्दी (Hindi)</a></li>
+          <li><a href="#">Español (Spanish)</a></li>
+          <li><a href="#">Français (French)</a></li>
+          <li><a href="#">Deutsch (German)</a></li>
+          <li><a href="#">中文 (Chinese)</a></li>
+          <li><a href="#">العربية (Arabic)</a></li>
+          <li><a href="#">日本語 (Japanese)</a></li>
+          <li><a href="#">Português (Portuguese)</a></li>
+        </ul>
+      </div>
+
+      <button class="nav-icon-btn" aria-label="Search">
+        <i class="fa-solid fa-magnifying-glass"></i>
+      </button>
+    </nav>
+  </header>
+
+  <!-- ASIDE: Hero section now uses a static image instead of a video -->
+  <aside>
+    <section class="hero">
+      <img class="bg-hero-img"
+        src="https://images.pexels.com/photos/14658736/pexels-photo-14658736.jpeg"
+        alt="Scenic India landscape">
+      <div class="overlay">
+        <h1 class="title">Multimedia Vault</h1>
+        <h2 class="tagline">Explore the assets</h2>
+      </div>
+    </section>
+  </aside>
+
+  <!-- MAIN: Wraps the core functional content of the page -->
+  <main class="essentials-container">
+    
+    <!-- ARTICLE: Used for the search card as a distinct unit of content -->
+    <article class="essential-card search-card">
+      <div class="card-content">
+        <h3 class="step-title">Search the Collection</h3>
+        <input type="text" id="vault-search" placeholder="Search the collection...">
+        <div class="filter-bar">
+          <span id="results-count">Explore the curated assets</span>
+        </div>
+      </div>
+    </article>
+
+    <div id="vault-grid"></div>
+  
+  <!-- Static Audio Element with controls and fallback -->
+  <section style="padding:20px 40px;">
+    <h2 style="font-size:1.1rem;margin-bottom:10px;color:#555;">Featured Audio Track</h2>
+    <audio controls style="width:100%;border-radius:8px;">
+      <source src="dragon-studio-soothing-river-flow-372456.mp3" type="audio/mpeg">
+      Your browser does not support the audio element. Please use a modern browser to listen.
+    </audio>
+  </section>
+</main>
+
+  <div id="asset-modal" class="modal hidden">
+    <div class="modal-inner">
+      <button class="close-btn" onclick="closeModal()">×</button>
+      <div id="modal-preview" class="preview-side"></div>
+      <div id="modal-info" class="info-side"></div>
+    </div>
+  </div>
+
+  <!-- FOOTER: Satisfies requirement without visual change -->
+  <footer style="text-align: center; padding: 20px;">
+    <p>&copy; 2026 Discover India. Safe Travels.</p>
+  </footer>
+  
+<script src="multimedia.js"></script>
+</body>
+</html>

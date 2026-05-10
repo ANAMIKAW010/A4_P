@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="Discover India - My Profile. Manage your account and saved itineraries.">
+  <meta name="keywords" content="India travel, my account, itinerary, profile, login">
+  <meta property="og:title" content="Discover India - My Profile">
+  <meta property="og:image" content="Logo.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="Logo.png" type="image/png">
+  <title>My Profile - Discover India</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="myprofile.css">
+  <link rel="stylesheet" href="global-additions.css">
+  <style>aside{display:block;width:100%;}</style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <nav class="navbar">
+      <a href="Home.html" class="logo-container">
+        <img src="Logo.png" alt="Logo" class="brand-logo">
+      </a>
+      <ul class="nav-links">
+        <li class="dropdown-container">
+          <a href="#explore" class="dropdown-trigger">EXPLORE <i class="fa-solid fa-chevron-down arrow"></i></a>
+          <ul class="dropdown-menu">
+            <li><a href="Canvas.html">The Indian Canvas</a></li>
+            <li><a href="TopDestinations.html">Top Destinations</a></li>
+          </ul>
+        </li>
+        <li class="dropdown-container">
+          <a href="#plan" class="dropdown-trigger">PLAN <i class="fa-solid fa-chevron-down arrow"></i></a>
+          <ul class="dropdown-menu">
+            <li><a href="Plan.html">Plan Your Trip</a></li>
+            <li><a href="Traveller.html">Traveller Essentials</a></li>
+          </ul>
+        </li>
+        <li class="dropdown-container">
+          <a href="#resources" class="dropdown-trigger">RESOURCES <i class="fa-solid fa-chevron-down arrow"></i></a>
+          <ul class="dropdown-menu">
+            <li><a href="Multimedia.html">Multimedia Vault</a></li>
+            <li><a href="Impact.html">Impact Dashboard</a></li>
+          </ul>
+        </li>
+        <li class="dropdown-container">
+          <a href="#accounts" class="dropdown-trigger">ACCOUNT <i class="fa-solid fa-chevron-down arrow"></i></a>
+          <ul class="dropdown-menu">
+            <li><a href="MyProfile.html">My Profile</a></li>
+            <li><a href="Support.html">Support &amp; Connect</a></li>
+          </ul>
+        </li>
+        <li><a href="Experiences.html">EXPERIENCES</a></li>
+      </ul>
+      <div class="language-selector">
+        <button class="nav-icon-btn" id="langBtn">
+          <i class="fa-solid fa-globe"></i>
+          <i class="fa-solid fa-chevron-down arrow"></i>
+        </button>
+        <ul class="dropdown-menu">
+          <li><a href="#">English (Default)</a></li>
+          <li><a href="#">हिन्दी (Hindi)</a></li>
+          <li><a href="#">Español (Spanish)</a></li>
+          <li><a href="#">Français (French)</a></li>
+          <li><a href="#">Deutsch (German)</a></li>
+          <li><a href="#">中文 (Chinese)</a></li>
+          <li><a href="#">العربية (Arabic)</a></li>
+          <li><a href="#">日本語 (Japanese)</a></li>
+          <li><a href="#">Português (Portuguese)</a></li>
+        </ul>
+      </div>
+      <button class="nav-icon-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
+    </nav>
+  </header>
+
+  <!-- ASIDE: Hero -->
+  <aside>
+    <section class="hero">
+      <div class="overlay">
+        <h1 class="title">MY PROFILE</h1>
+        <h2 class="tagline">Manage Your Discoveries</h2>
+      </div>
+    </section>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="account-container">
+
+    <!-- ARTICLE: Sign In / Sign Up -->
+    <article id="auth-section" class="account-card" style="max-width:550px;margin:0 auto;">
+      <h3 class="step-title" id="auth-title">Sign In</h3>
+      <form id="auth-form">
+        <div class="form-group">
+          <label>Email Address</label>
+          <input type="email" id="email" class="custom-input" required placeholder="traveler@example.com" pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}">
+          <span class="field-error" id="email-error" style="color:#dc3545;font-size:0.82rem;display:none;">Enter a valid email address.</span>
+        </div>
+        <div class="form-group">
+          <label>Password</label>
+          <input type="password" id="password" class="custom-input" required placeholder="••••••••" pattern=".{6,}">
+          <span class="field-error" id="password-error" style="color:#dc3545;font-size:0.82rem;display:none;">Password must be at least 6 characters.</span>
+        </div>
+        <div id="signup-fields" class="hidden">
+          <div class="form-group">
+            <label>Full Name</label>
+            <input type="text" id="name" class="custom-input" placeholder="Enter your full name">
+          </div>
+          <div class="form-group">
+            <label>Date of Birth</label>
+            <input type="date" id="dob" class="custom-input">
+          </div>
+          <div class="form-group">
+            <label>Nationality</label>
+            <select id="nationality" class="custom-input">
+              <option value="">Select Country...</option>
+              <option value="India">India</option>
+              <option value="United States">United States</option>
+              <option value="United Kingdom">United Kingdom</option>
+              <option value="Australia">Australia</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Home Address</label>
+            <textarea id="address" class="custom-input" rows="2" placeholder="City, State, Country"></textarea>
+          </div>
+        </div>
+        <p id="error-msg" style="color:#dc3545;font-size:0.9rem;display:none;margin-bottom:15px;font-weight:bold;"></p>
+        <button type="submit" class="primary-btn" id="submit-btn">Sign In</button>
+      </form>
+      <p style="text-align:center;margin-top:20px;font-size:0.9rem;color:#666;">
+        <span id="auth-switch-text">Don't have an account?</span>
+        <button class="text-btn" id="toggle-auth">Sign Up</button>
+      </p>
+    </article>
+
+    <!-- ARTICLE: Profile Dashboard -->
+    <article id="profile-section" class="dashboard hidden">
+      <div class="dashboard-header">
+        <h3 class="step-title" style="border:none;margin:0;padding:0;">Welcome back, <span id="display-name" style="color:#007bff;">Traveler</span>!</h3>
+        <button class="logout-btn" id="logout-btn">Log Out</button>
+      </div>
+      <div class="dashboard-grid">
+        <div class="account-card">
+          <h3 class="step-title">Personal Details</h3>
+          <div class="info-row"><strong>Email:</strong> <span id="display-email"></span></div>
+          <div class="info-row"><strong>Date of Birth:</strong> <span id="display-dob"></span></div>
+          <div class="info-row"><strong>Nationality:</strong> <span id="display-nationality"></span></div>
+          <div class="info-row"><strong>Address:</strong> <span id="display-address"></span></div>
+        </div>
+        <div class="account-card">
+          <h3 class="step-title">Saved Itineraries</h3>
+          <ul class="saved-list">
+            <li><i class="fa-solid fa-map-location-dot"></i> 7-Day Golden Triangle <span>View</span></li>
+            <li><i class="fa-solid fa-map-location-dot"></i> Kerala Backwaters Retreat <span>View</span></li>
+          </ul>
+        </div>
+      </div>
+    </article>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer style="text-align:center;padding:20px;">
+    <p>&copy; 2026 Discover India. Safe Travels.</p>
+  </footer>
+  
+  <script src="myprofile.js"></script>
+</body>
+</html>

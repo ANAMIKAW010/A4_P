@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="Discover India - Plan Your Trip. Build your personalized India itinerary.">
+  <meta name="keywords" content="India travel, trip planner, itinerary, tourism, heritage">
+  <meta property="og:title" content="Discover India - Plan Your Trip">
+  <meta property="og:image" content="Logo.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="Logo.png" type="image/png">
+  <title>Plan Your Trip - Discover India</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="plan.css">
+  <link rel="stylesheet" href="global-additions.css">
+</head>
+<body>
+
+  <!-- HEADER: nav only — hero is outside so it never overlays and blocks nav clicks -->
+  <header>
+    <nav class="navbar">
+      <a href="Home.html" class="logo-container">
+        <img src="Logo.png" alt="Logo" class="brand-logo">
+      </a>
+      <ul class="nav-links">
+        <li class="dropdown-container">
+          <a href="#explore" class="dropdown-trigger">EXPLORE <i class="fa-solid fa-chevron-down arrow"></i></a>
+          <ul class="dropdown-menu">
+            <li><a href="Canvas.html">The Indian Canvas</a></li>
+            <li><a href="TopDestinations.html">Top Destinations</a></li>
+          </ul>
+        </li>
+        <li class="dropdown-container">
+          <a href="#plan" class="dropdown-trigger">PLAN <i class="fa-solid fa-chevron-down arrow"></i></a>
+          <ul class="dropdown-menu">
+            <li><a href="Plan.html">Plan Your Trip</a></li>
+            <li><a href="Traveller.html">Traveller Essentials</a></li>
+          </ul>
+        </li>
+        <li class="dropdown-container">
+          <a href="#resources" class="dropdown-trigger">RESOURCES <i class="fa-solid fa-chevron-down arrow"></i></a>
+          <ul class="dropdown-menu">
+            <li><a href="Multimedia.html">Multimedia Vault</a></li>
+            <li><a href="Impact.html">Impact Dashboard</a></li>
+          </ul>
+        </li>
+        <li class="dropdown-container">
+          <a href="#accounts" class="dropdown-trigger">ACCOUNT <i class="fa-solid fa-chevron-down arrow"></i></a>
+          <ul class="dropdown-menu">
+            <li><a href="MyProfile.html">My Profile</a></li>
+            <li><a href="Support.html">Support &amp; Connect</a></li>
+          </ul>
+        </li>
+        <li><a href="Experiences.html">EXPERIENCES</a></li>
+      </ul>
+      <div class="language-selector">
+        <button class="nav-icon-btn" id="langBtn">
+          <i class="fa-solid fa-globe"></i>
+          <i class="fa-solid fa-chevron-down arrow"></i>
+        </button>
+        <ul class="dropdown-menu">
+          <li><a href="#">English (Default)</a></li>
+          <li><a href="#">हिन्दी (Hindi)</a></li>
+          <li><a href="#">Español (Spanish)</a></li>
+          <li><a href="#">Français (French)</a></li>
+          <li><a href="#">Deutsch (German)</a></li>
+          <li><a href="#">中文 (Chinese)</a></li>
+          <li><a href="#">العربية (Arabic)</a></li>
+          <li><a href="#">日本語 (Japanese)</a></li>
+          <li><a href="#">Português (Portuguese)</a></li>
+        </ul>
+      </div>
+      <button class="nav-icon-btn" aria-label="Search"><i class="fa-solid fa-magnifying-glass"></i></button>
+    </nav>
+  </header>
+
+  <!-- HERO outside header — prevents hero from overlaying and blocking navbar -->
+  <section class="hero">
+    <div class="overlay">
+      <h1 class="title">Plan Your Trip</h1>
+      <h2 class="tagline">Your Personalized Journey</h2>
+    </div>
+  </section>
+
+  <main class="planner-container">
+
+    <!-- ARTICLE: planner steps -->
+    <article class="planner-steps">
+      <div class="planner-card">
+        <h3 class="step-title">Step 1: Choose Your Preferences</h3>
+        <form id="itineraryForm">
+          <div class="form-group">
+            <label>Interests:</label>
+            <select class="custom-select">
+              <option>Heritage</option><option>Adventure</option>
+              <option>Nature</option><option>Spiritual</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Budget Range: <span id="budgetValue">$5000</span></label>
+            <input type="range" min="100" max="10000" step="100" value="5000" class="slider" id="budgetSlider">
+          </div>
+          <div class="form-group">
+            <label>Travel Dates:</label>
+            <input type="date" class="custom-date">
+          </div>
+          <div class="form-group">
+            <label for="destination-search">Search Destination <small>(autocomplete)</small></label>
+            <input type="text" id="destination-search" class="custom-select" list="india-destinations" placeholder="e.g. Goa, Jaipur, Kerala...">
+            <datalist id="india-destinations">
+              <option value="Goa"><option value="Jaipur"><option value="Kerala Backwaters">
+              <option value="Taj Mahal, Agra"><option value="Varanasi"><option value="Ladakh">
+              <option value="Andaman Islands"><option value="Mysore"><option value="Rishikesh"><option value="Hampi">
+            </datalist>
+          </div>
+          <fieldset class="travel-fieldset">
+            <legend>Travel Group</legend>
+            <div class="form-group"><label><input type="radio" name="group" value="solo"> Solo Traveller</label></div>
+            <div class="form-group"><label><input type="radio" name="group" value="couple"> Couple</label></div>
+            <div class="form-group"><label><input type="radio" name="group" value="family"> Family</label></div>
+            <div class="form-group"><label><input type="radio" name="group" value="group"> Group (5+)</label></div>
+          </fieldset>
+          <button type="submit" class="primary-btn">Generate Itinerary</button>
+        </form>
+      </div>
+      <div class="planner-card">
+        <h3 class="step-title">Step 2: Suggested Itineraries</h3>
+        <div id="itineraryResult" class="result-display">Generated itineraries will appear here...</div>
+      </div>
+    </article>
+
+    <!-- ASIDE: Save / Share -->
+    <aside>
+      <div class="button-group">
+        <button type="button" class="primary-btn" id="saveBtn">Save</button>
+        <button type="button" class="secondary-btn" id="shareBtn">Share</button>
+      </div>
+    </aside>
+
+  </main>
+
+  <footer style="text-align: center; padding: 20px;">
+    <p>&copy; 2026 Discover India. Safe Travels.</p>
+  </footer>
+  
+  <script src="plan.js"></script>
+</body>
+</html>
